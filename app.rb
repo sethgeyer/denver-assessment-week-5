@@ -24,4 +24,12 @@ class ContactsApp < Sinatra::Base
     erb :home
   end
 
+  get "/login" do
+    erb :login
+  end
+
+  post "/login" do
+    redirect_to
+  end
+
 end
