@@ -1,4 +1,16 @@
 <h1>Contacts</h1>
 
 
-<a href="/login">Login</a>
+
+
+
+
+
+
+<%if session[:user_id]%>
+
+  "Welcome Jeff"
+<%else%>
+
+  <a href="/login">Login</a>
+<%end%>

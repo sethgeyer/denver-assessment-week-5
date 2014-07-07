@@ -29,7 +29,13 @@ class ContactsApp < Sinatra::Base
   end
 
   post "/login" do
-    redirect_to
+    username = params[:username]
+    password = params[:password]
+    user = @user_database.all.detect { |hash| hash[:username] == username && hash[:password] == password }
+    session[:user_id] = user[:id]
+    #flash[:notice] = "Welcome #{username}"
+
+    redirect "/"
   end
 
 end
