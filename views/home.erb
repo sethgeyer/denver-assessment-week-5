@@ -1,8 +1,3 @@
-<h1>Contacts</h1>
-
-
-
-
 
 
 
@@ -10,7 +5,20 @@
 <%if session[:user_id]%>
 
   "Welcome Jeff"
+
+
 <%else%>
 
   <a href="/login">Login</a>
+<%end%>
+
+
+
+<h1>Contacts</h1>
+<%contacts = @contact_database.find_for_user(session[:user_id])%>
+
+<%contacts.each do |contact| %>
+  Name: <%=contact[:name]%><br>
+
+  Email: <%=contact[:email]%><br><br>
 <%end%>
